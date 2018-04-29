@@ -1,9 +1,9 @@
 ﻿namespace SimpleECS
 {
-    public struct Entity
+    public struct Entity : IEntity
     {
-        public readonly int Id;
-
+        public int Id { get; }
+        
         public Entity(int id)
         {
             Id = id;
