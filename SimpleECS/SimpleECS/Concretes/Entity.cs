@@ -1,6 +1,6 @@
 ﻿using SimpleECS.Interfaces;
 
-namespace SimpleECS
+namespace SimpleECS.Concretes
 {
     public struct Entity : IEntity
     {
