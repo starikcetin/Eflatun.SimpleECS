@@ -16,7 +16,7 @@ namespace SimpleECS.Concretes
 
         private void EnsureKeyPresent(IEntity entity)
         {
-            if (_entityComponents[entity] == null)
+            if (!_entityComponents.ContainsKey(entity))
             {
                 _entityComponents[entity] = new HashSet<IComponent>();
             }
