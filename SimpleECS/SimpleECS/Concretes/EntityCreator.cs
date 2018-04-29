@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using SimpleECS.Interfaces;
+﻿using SimpleECS.Interfaces;
 
 namespace SimpleECS.Concretes
 {
     public class EntityCreator : IEntityCreator
     {
-        private readonly IComponentCreator _componentCreator;
+        private readonly IUniqueIdProvider _uniqueIdProvider;
 
-        public EntityCreator(IComponentCreator componentCreator)
+        public EntityCreator(IUniqueIdProvider uniqueIdProvider)
         {
-            _componentCreator = componentCreator;
+            _uniqueIdProvider = uniqueIdProvider;
         }
 
-        public IEnumerable<IComponent> CreateEntity(IEntityTemplate entityTemplate)
+        public Entity CreateEntity()
         {
-            foreach (var componentType in entityTemplate.ComponentTypes)
-            {
-                yield return _componentCreator.CreateComponentFromType(componentType);
-            }
+            var id = _uniqueIdProvider.GetUniqueId();
+            var entity = new Entity(id);
+            return entity;
         }
     }
 }
