@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SimpleECS
+namespace SimpleECS.Interfaces
 {
     public interface IEntityCreator
     {

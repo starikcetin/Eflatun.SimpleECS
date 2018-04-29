@@ -1,4 +1,4 @@
-﻿namespace SimpleECS
+﻿namespace SimpleECS.Interfaces
 {
     public interface IEntity
     {

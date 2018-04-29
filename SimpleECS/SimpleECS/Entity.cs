@@ -1,4 +1,6 @@
-﻿namespace SimpleECS
+﻿using SimpleECS.Interfaces;
+
+namespace SimpleECS
 {
     public struct Entity : IEntity
     {
