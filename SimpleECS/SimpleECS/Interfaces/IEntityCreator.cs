@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using SimpleECS.Concretes;
 
 namespace SimpleECS.Interfaces
 {
     public interface IEntityCreator
     {
-        IEnumerable<IComponent> CreateEntity(IEntityTemplate entityTemplate);
+        Entity CreateEntity();
     }
 }
