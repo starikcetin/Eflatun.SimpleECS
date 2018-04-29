@@ -2,7 +2,7 @@
 
 namespace SimpleECS.Concretes
 {
-    public struct Entity : IEntity
+    public class Entity : IEntity
     {
         public int Id { get; }
         
