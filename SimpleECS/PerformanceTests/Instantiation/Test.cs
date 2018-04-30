@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using SimpleECS.Interfaces;
 
-namespace Development.Testing.Performance.Instantiation
+namespace PerformanceTests.Instantiation
 {
     internal class Test
     {

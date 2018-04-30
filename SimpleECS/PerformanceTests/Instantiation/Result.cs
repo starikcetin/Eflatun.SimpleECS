@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Development.Testing.Performance.Instantiation
+namespace PerformanceTests.Instantiation
 {
     internal class Result
     {

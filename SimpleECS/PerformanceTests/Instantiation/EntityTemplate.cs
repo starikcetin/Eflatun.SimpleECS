@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using SimpleECS.Interfaces;
 
-namespace Development.Testing.Performance.Instantiation
+namespace PerformanceTests.Instantiation
 {
     internal class EntityTemplate : IEntityTemplate
     {
