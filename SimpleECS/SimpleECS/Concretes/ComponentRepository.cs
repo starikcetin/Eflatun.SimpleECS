@@ -12,6 +12,11 @@ namespace SimpleECS.Concretes
 
         public IReadOnlyCollection<IEntity> AllEntities => _entityComponents.Keys;
 
+        public void Register(IEntity entity)
+        {
+            EnsureKeyPresent(entity);
+        }
+
         public void Register(IEntity entity, IComponent component)
         {
             EnsureKeyPresent(entity);
