@@ -12,7 +12,4 @@
   <ItemGroup>
     <ProjectReference Include="..\SimpleECS\SimpleECS.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="EntityInstantiation" />
-  </ItemGroup>
 </Project>
