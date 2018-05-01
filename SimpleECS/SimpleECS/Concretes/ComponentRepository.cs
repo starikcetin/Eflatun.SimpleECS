@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using SimpleECS.Interfaces;
 
@@ -8,6 +9,13 @@ namespace SimpleECS.Concretes
     {
         private readonly Dictionary<IEntity, HashSet<IComponent>> _entityComponents =
             new Dictionary<IEntity, HashSet<IComponent>>();
+
+        public IReadOnlyCollection<IEntity> AllEntities => _entityComponents.Keys;
+
+        public void Register(IEntity entity)
+        {
+            EnsureKeyPresent(entity);
+        }
 
         public void Register(IEntity entity, IComponent component)
         {
@@ -31,6 +39,12 @@ namespace SimpleECS.Concretes
         {
             EnsureKeyPresent(entity);
             return _entityComponents[entity].OfType<T>().Single();
+        }
+
+        public bool HasComponent(IEntity entity, Type componentType)
+        {
+            EnsureKeyPresent(entity);
+            return _entityComponents[entity].Any(c => c.GetType() == componentType);
         }
 
         private void EnsureKeyPresent(IEntity entity)
