@@ -18,6 +18,12 @@ namespace PerformanceTests
                 componentPerEntity: 100);
 
             Console.WriteLine(instantiation);
+
+            var execute = new ExecutionAndEntityReaching.Test().Run(
+                entityPerTemplate: 100,
+                frameCount: 100);
+
+            Console.WriteLine(execute);
         }
     }
 }
