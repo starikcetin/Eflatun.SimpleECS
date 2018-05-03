@@ -38,7 +38,16 @@ namespace SimpleECS.Concretes
         public T GetComponent<T>(IEntity entity) where T : IComponent
         {
             //EnsureKeyPresent(entity);
-            return _entityComponents[entity].OfType<T>().Single();
+
+            foreach (var c in _entityComponents[entity])
+            {
+                if (c.GetType() == typeof(T))
+                {
+                    return (T) c;
+                }
+            }
+
+            throw new Exception("Entity doesn't contain the specified component type.");
         }
 
         public bool HasComponent(IEntity entity, Type componentType)
