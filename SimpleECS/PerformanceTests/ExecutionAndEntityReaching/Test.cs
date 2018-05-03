@@ -9,15 +9,15 @@ namespace PerformanceTests.ExecutionAndEntityReaching
 {
     internal class Test
     {
-        private readonly ComponentRepository _componentRepository;
-        private readonly UniqueIdProvider _uniqueIdProvider;
-        private readonly EntityCreator _entityCreator;
-        private readonly ComponentCreator _componentCreator;
-        private readonly EntityTemplateInstantiator _entityTemplateInstantiator;
-        private readonly ComponentMatcher _componentMatcher;
-        private readonly EntityFilterer _entityFilterer;
-        private readonly SystemRepository _systemRepository;
-        private readonly SystemsExecuter _systemsExecuter;
+        private readonly IComponentRepository _componentRepository;
+        private readonly IUniqueIdProvider _uniqueIdProvider;
+        private readonly IEntityCreator _entityCreator;
+        private readonly IComponentCreator _componentCreator;
+        private readonly IEntityTemplateInstantiator _entityTemplateInstantiator;
+        private readonly IComponentMatcher _componentMatcher;
+        private readonly IEntityFilterer _entityFilterer;
+        private readonly ISystemRepository _systemRepository;
+        private readonly ISystemsExecuter _systemsExecuter;
 
         public Test()
         {
