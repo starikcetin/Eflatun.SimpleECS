@@ -44,7 +44,13 @@ namespace SimpleECS.Concretes
         public bool HasComponent(IEntity entity, Type componentType)
         {
             //EnsureKeyPresent(entity);
-            return _entityComponents[entity].Any(c => c.GetType() == componentType);
+            
+            foreach (var c in _entityComponents[entity])
+            {
+                if (c.GetType() == componentType) return true;
+            }
+
+            return false;
         }
 
         private void EnsureKeyPresent(IEntity entity)
