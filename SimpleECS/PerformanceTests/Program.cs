@@ -20,8 +20,8 @@ namespace PerformanceTests
             Console.WriteLine(instantiation);
 
             var execute = new ExecutionAndEntityReaching.Test().Run(
-                entityPerTemplate: 100,
-                frameCount: 100);
+                entityPerTemplate: 2_500,
+                frameCount: 50);
 
             Console.WriteLine(execute);
         }
