@@ -25,25 +25,25 @@ namespace SimpleECS.Concretes
 
         public void Unregister(IEntity entity, IComponent component)
         {
-            EnsureKeyPresent(entity);
+            //EnsureKeyPresent(entity);
             _entityComponents[entity].Remove(component);
         }
 
         public IReadOnlyCollection<IComponent> GetComponents(IEntity entity)
         {
-            EnsureKeyPresent(entity);
+            //EnsureKeyPresent(entity);
             return _entityComponents[entity];
         }
 
         public T GetComponent<T>(IEntity entity) where T : IComponent
         {
-            EnsureKeyPresent(entity);
+            //EnsureKeyPresent(entity);
             return _entityComponents[entity].OfType<T>().Single();
         }
 
         public bool HasComponent(IEntity entity, Type componentType)
         {
-            EnsureKeyPresent(entity);
+            //EnsureKeyPresent(entity);
             return _entityComponents[entity].Any(c => c.GetType() == componentType);
         }
 
