@@ -5,6 +5,6 @@ namespace SimpleECS.Interfaces
 {
     public interface ISystemComponentRequirement
     {
-        IReadOnlyCollection<Type> RequiredComponentTypes { get; }
+        IReadOnlyList<Type> RequiredComponentTypes { get; }
     }
 }

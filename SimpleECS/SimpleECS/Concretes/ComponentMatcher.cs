@@ -1,4 +1,5 @@
-﻿using SimpleECS.Interfaces;
+﻿using System;
+using SimpleECS.Interfaces;
 
 namespace SimpleECS.Concretes
 {
@@ -13,9 +14,9 @@ namespace SimpleECS.Concretes
 
         public bool IsMatching(IEntity entity, ISystemComponentRequirement systemComponentRequirement)
         {
-            foreach (var requiredComponentType in systemComponentRequirement.RequiredComponentTypes)
+            for (var i = 0; i < systemComponentRequirement.RequiredComponentTypes.Count; i++)
             {
-                if (!_componentRepository.HasComponent(entity, requiredComponentType))
+                if (!_componentRepository.HasComponent(entity, systemComponentRequirement.RequiredComponentTypes[i]))
                 {
                     return false;
                 }

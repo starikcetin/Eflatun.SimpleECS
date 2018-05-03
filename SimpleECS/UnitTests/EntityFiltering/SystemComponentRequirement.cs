@@ -6,7 +6,7 @@ namespace UnitTests.EntityFiltering
 {
     internal class SystemComponentRequirement : ISystemComponentRequirement
     {
-        public IReadOnlyCollection<Type> RequiredComponentTypes { get; } = new[]
+        public IReadOnlyList<Type> RequiredComponentTypes { get; } = new[]
         {
             typeof(Component)
         };
