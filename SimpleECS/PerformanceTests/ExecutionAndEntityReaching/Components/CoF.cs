@@ -1,4 +1,9 @@
-﻿namespace PerformanceTests.ExecutionAndEntityReaching.Components
+﻿using SimpleECS.Interfaces;
+
+namespace PerformanceTests.ExecutionAndEntityReaching.Components
 {
-    internal class CoF : CBase {}
+    internal struct CoF : IComponent
+    {
+        public int Val;
+    }
 }
