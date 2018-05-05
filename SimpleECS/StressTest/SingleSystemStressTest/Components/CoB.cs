@@ -1,6 +1,6 @@
 ﻿using SimpleECS.Interfaces;
 
-namespace PerformanceTests.ExecutionAndEntityReaching.Components
+namespace StressTest.SingleSystemStressTest.Components
 {
     internal struct CoB : IComponent
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Diagnostics;
-using PerformanceTests.ExecutionAndEntityReaching.EntityTemplates;
-using PerformanceTests.ExecutionAndEntityReaching.Systems;
 using SimpleECS.Concretes;
 using SimpleECS.Interfaces;
+using StressTest.SingleSystemStressTest.EntityTemplates;
+using StressTest.SingleSystemStressTest.Systems;
 
-namespace PerformanceTests.ExecutionAndEntityReaching
+namespace StressTest.SingleSystemStressTest
 {
     internal class Test
     {
@@ -33,43 +33,23 @@ namespace PerformanceTests.ExecutionAndEntityReaching
             _systemsExecuter = new SystemsExecuter(_systemRepository);
         }
 
-        public Result Run(int entityPerTemplate, int frameCount)
+        public Result Run(int entityCount, int frameCount)
         {
-            InitializeEntities(entityPerTemplate, _entityTemplateInstantiator);
-            InitializeSystems(_systemRepository, _entityFilterer, _componentRepository);
+            var tpl = new Tpl();
+
+            for (var i = 0; i < entityCount; i++)
+            {
+                _entityTemplateInstantiator.Instantiate(tpl);
+            }
+
+            _systemRepository.Register(new Sys(_entityFilterer, _componentRepository));
 
             var totalExecuteTime = MeasureExecute(frameCount, _systemsExecuter);
 
             return new Result(
-                templateCount: 4,
-                entityPerTemplate: entityPerTemplate,
+                entityCount: entityCount,
                 frameCount: frameCount,
                 totalExecuteTime: totalExecuteTime);
-        }
-
-        private static void InitializeEntities(int entityPerTemplate, IEntityTemplateInstantiator instantiator)
-        {
-            var a = new Tpl_A();
-            var bc = new Tpl_BC();
-            var defg = new Tpl_DEFG();
-            var hijklmno = new Tpl_HIJK_LMNO();
-
-            for (var i = 0; i < entityPerTemplate; i++)
-            {
-                instantiator.Instantiate(a);
-                instantiator.Instantiate(bc);
-                instantiator.Instantiate(defg);
-                instantiator.Instantiate(hijklmno);
-            }
-        }
-
-        private static void InitializeSystems(ISystemRepository systemRepository, IEntityFilterer entityFilterer,
-            IComponentRepository componentRepository)
-        {
-            systemRepository.Register(new Sys_A(entityFilterer, componentRepository));
-            systemRepository.Register(new Sys_BC(entityFilterer, componentRepository));
-            systemRepository.Register(new Sys_DEFG(entityFilterer, componentRepository));
-            systemRepository.Register(new Sys_HIJK_LMNO(entityFilterer, componentRepository));
         }
 
         private static TimeSpan MeasureExecute(int frameCount, ISystemsExecuter systemsExecuter)

@@ -7,7 +7,7 @@ namespace PerformanceTests.ExecutionAndEntityReaching.SystemCompositionRequireme
 {
     public class SysReq_A : ISystemComponentRequirement
     {
-        public IReadOnlyCollection<Type> RequiredComponentTypes { get; } = new[]
+        public IReadOnlyList<Type> RequiredComponentTypes { get; } = new[]
         {
             typeof(CoA)
         };

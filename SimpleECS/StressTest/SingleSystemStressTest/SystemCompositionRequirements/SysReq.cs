@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using PerformanceTests.ExecutionAndEntityReaching.Components;
 using SimpleECS.Interfaces;
+using StressTest.SingleSystemStressTest.Components;
 
-namespace PerformanceTests.ExecutionAndEntityReaching.SystemCompositionRequirements
+namespace StressTest.SingleSystemStressTest.SystemCompositionRequirements
 {
-    public class SysReq_HIJK_LMNO : ISystemComponentRequirement
+    public class SysReq : ISystemComponentRequirement
     {
         public IReadOnlyList<Type> RequiredComponentTypes { get; } = new[]
         {
